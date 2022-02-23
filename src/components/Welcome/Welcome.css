@@ -1,0 +1,107 @@
+.welcome {
+	position: relative;
+}
+.welcome__hero-img,
+.welcome__carousel-bg {
+	position: relative;
+}
+.welcome__hero-img:before,
+.welcome__carousel-bg:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: var(--color-black);
+	opacity: 0.5;
+}
+
+.welcome__hero-img img,
+.welcome__carousel-bg img {
+	width: 100%;
+	height: auto;
+	max-width: 1200px;
+	background-size: cover;
+	background-position: center;
+}
+
+.welcome__text,
+.welcome__carousel-text {
+	position: absolute;
+	top: 43%;
+	margin: 2rem;
+}
+.welcome__text h1,
+.welcome__carousel-text h3 {
+	font-size: 4rem;
+}
+.welcome__text p,
+.welcome__carousel-text p {
+	font-size: 2rem;
+	color: var(--color-grey);
+	font-weight: 300;
+}
+.welcome__text h1 span,
+.welcome__carousel-text h3 span {
+	color: var(--color-gold);
+	font-weight: 400;
+}
+.welcome__button {
+	margin-top: 1rem;
+	color: var(--color-white);
+	background-color: var(--color-gold);
+	border: none;
+	border-radius: 5px;
+	padding: 1rem 2rem;
+	transition: 0.3s ease;
+	cursor: pointer;
+}
+.welcome__button:hover {
+	color: var(--color-blue);
+	background-color: var(--color-white);
+}
+.welcome__carousel-bg {
+	position: relative;
+}
+.welcome__carousel-text {
+	max-width: 50rem;
+	color: var(--color-grey);
+}
+
+@media (max-width: 768px) {
+	.welcome__text h1,
+	.welcome__carousel-text h3 {
+		font-size: 3.5rem;
+	}
+	.welcome__text p,
+	.welcome__carousel-text p {
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 576px) {
+	.welcome__text {
+		position: absolute;
+		top: 30%;
+		margin: 2rem;
+	}
+	.welcome__text h1 {
+		font-size: 2.5rem;
+	}
+	.welcome__text p {
+		font-size: 1.2rem;
+	}
+
+	.welcome__carousel-text {
+		position: absolute;
+		top: 20%;
+		margin: 2rem;
+	}
+	.welcome__carousel-text h3 {
+		font-size: 2rem;
+	}
+	.welcome__carousel-text p {
+		font-size: 1.5rem;
+	}
+}

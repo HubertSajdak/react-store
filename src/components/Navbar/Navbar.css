@@ -1,0 +1,120 @@
+.navbar {
+	background-color: var(--color-white);
+	border-bottom: 1px solid var(--color-blue);
+}
+.navbar__wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.navbar__brand-name {
+	font-size: 2rem;
+	margin: 0.5rem;
+	font-weight: bold;
+	align-items: flex-start;
+}
+.navbar__brand-name span {
+	color: var(--color-gold);
+	font-weight: normal;
+}
+
+.navbar__links ul {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	list-style: none;
+}
+.navbar__links li a {
+	padding: 1rem;
+	display: block;
+	font-size: 1.8rem;
+	transition: 0.2s;
+}
+
+.navbar__links li a:hover {
+	color: var(--color-gold);
+	background-color: var(--color-grey);
+	border-radius: 15px;
+}
+
+.navbar__cart-icon,
+.navbar__avatar-icon {
+	font-size: 2.5rem;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.navbar__avatar-icon {
+	margin-right: 1rem;
+}
+.navbar__cart-icon:hover,
+.navbar__avatar-icon:hover {
+	color: var(--color-gold);
+}
+
+/* smallscreen  */
+.navbar__smallscreen {
+	display: none;
+}
+.navbar__smallscreen-cart-icon,
+.navbar__smallscreen-avatar-icon {
+	display: none;
+}
+
+.overlay-open,
+.overlay-close {
+	position: fixed;
+	right: 1rem;
+	top: 1rem;
+	font-size: 3rem;
+	z-index: 5;
+}
+
+@media (max-width: 576px) {
+	.navbar {
+		flex-direction: column;
+	}
+	.navbar__wrapper {
+		align-items: flex-start;
+	}
+	.navbar__links {
+		text-align: center;
+		/* align-items: flex-end; */
+	}
+
+	.navbar__smallscreen {
+		display: block;
+	}
+
+	.navbar__links ul {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.navbar__links ul li {
+		margin: 1rem;
+	}
+
+	.navbar__smallscreen-cart-icon,
+	.navbar__smallscreen-avatar-icon {
+		display: block;
+		margin: 0;
+		font-size: 2.5rem;
+		cursor: pointer;
+		transition: 0.3s;
+	}
+	.navbar__smallscreen-cart-icon:hover,
+	.navbar__smallscreen-avatar-icon:hover {
+		color: var(--color-gold);
+	}
+	.navbar__cart-icon,
+	.navbar__avatar-icon {
+		display: none;
+	}
+
+	.hidden {
+		display: none;
+	}
+}
