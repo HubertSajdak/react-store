@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getClothes } from './store/fetchapi-slice'
 import { Route, Switch } from 'react-router-dom'
