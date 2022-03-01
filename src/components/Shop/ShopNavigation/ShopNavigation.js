@@ -4,13 +4,11 @@ import { sortingActions } from '../../../store/sorting-slice'
 import { filteringActions } from '../../../store/filtering-slice'
 import { useSelector } from 'react-redux'
 import './ShopNavigation.css'
-const ShopNavigation = () => {
+const ShopNavigation = props => {
 	const filterValue = useSelector(state => state.filteringClothes.filterValue)
 	const [filterCategory, setFilterCategory] = useState([])
-	const categoryRef = useRef()
 	const typeRef = useRef('none')
 	const dispatch = useDispatch()
-
 	const sortHandler = () => {
 		if (typeRef.current.value === 'none') {
 			dispatch(sortingActions.sortNone())
@@ -50,7 +48,7 @@ const ShopNavigation = () => {
 						<option value='titleDes'>Z-A</option>
 					</select>
 				</div>
-				<div className='shop-navigation__category' ref={categoryRef}>
+				<div className='shop-navigation__category'>
 					<p>Categories</p>
 					<input type='checkbox' id='backpacks' value='backpack' onClick={filterHandler} />
 					<label htmlFor='backpacks'>Backpacks</label>

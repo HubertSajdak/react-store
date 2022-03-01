@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import ProductItem from './ProductItem/ProductItem'
 import { useSelector } from 'react-redux'
-import store from '../../../../store/index'
 import './ProductList.css'
 
 const ProductList = () => {
-	const [sortedData, setSortedData] = useState([])
-	const [filteredData, setFilteredData] = useState([])
-	// getting the data from api
 	const clothesData = useSelector(state => state.fetchClothes.clothes)
 	const sortType = useSelector(state => state.sortingClothes.sortAs)
 	const filterValue = useSelector(state => state.filteringClothes.filterValue)
-
-	// sorting data
-
+	const [filteredData, setFilteredData] = useState([])
+	const [sortedData, setSortedData] = useState([])
+	//filtering data
+	console.log(filterValue)
 	useEffect(() => {
 		let newClothesData = [...clothesData]
+		let newFilteredData
+		const filterArray = () => {
+			newFilteredData = newClothesData
+				.filter(({ title }) => title.toLowerCase().includes(filterValue))
+				.map(({ title, id, price, image, description }) => ({ title, id, price, image, description }))
+			setFilteredData(newFilteredData)
+		}
+		filterArray()
+	}, [clothesData, filterValue])
+	console.log(filteredData)
+	// sorting data
+	useEffect(() => {
+		let newClothesData = [...filteredData]
 		const sortArray = type => {
 			const types = {
 				none: 'none',
@@ -40,24 +50,10 @@ const ProductList = () => {
 		}
 		setSortedData(newClothesData)
 		sortArray(sortType)
-	}, [sortType, clothesData])
-
-	// filtering data (working on it)
-
-	useEffect(() => {
-		let filteredClothesData = [...sortedData]
-		const filterArray = () => {
-			const keyFilter = 'title'
-
-			filteredClothesData.filter(item => item[keyFilter].includes(filterValue))
-		}
-		filterArray()
-		setFilteredData(filteredClothesData)
-	}, [filterValue, sortedData])
-
+	}, [sortType, filteredData])
 	return (
 		<div className='product-list'>
-			{filteredData.map(item => {
+			{sortedData.map(item => {
 				return <ProductItem key={item.id} clothesData={item} />
 			})}
 		</div>
