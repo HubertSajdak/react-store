@@ -1,11 +1,11 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { sortingActions } from '../../../store/sorting-slice'
 import { filteringActions } from '../../../store/filtering-slice'
 import { useSelector } from 'react-redux'
 import './ShopNavigation.css'
 const ShopNavigation = props => {
-	const filterValue = useSelector(state => state.filteringClothes.filterValue)
+	// const filterValue = useSelector(state => state.filteringClothes.filterValue)
 	const [filterCategory, setFilterCategory] = useState([])
 	const typeRef = useRef('none')
 	const dispatch = useDispatch()

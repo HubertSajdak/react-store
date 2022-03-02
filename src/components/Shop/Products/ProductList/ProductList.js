@@ -9,21 +9,27 @@ const ProductList = () => {
 	const filterValue = useSelector(state => state.filteringClothes.filterValue)
 	const [filteredData, setFilteredData] = useState([])
 	const [sortedData, setSortedData] = useState([])
-	//filtering data
-	console.log(filterValue)
+	console.log(filteredData)
+	// useEffect(() => {
+	// 	let newClothesData = [...clothesData]
+	// 	let newFilteredData
+	// 	const filterArray = () => {
+	// 		newFilteredData = newClothesData
+	// 			.filter(({ title }) => title.toLowerCase().includes(filterValue))
+	// 			.map(({ title, id, price, image, description }) => ({ title, id, price, image, description }))
+	// 		setFilteredData(newFilteredData)
+	// 	}
+	// 	filterArray()
+	// }, [clothesData, filterValue])
 	useEffect(() => {
 		let newClothesData = [...clothesData]
-		let newFilteredData
-		const filterArray = () => {
-			newFilteredData = newClothesData
-				.filter(({ title }) => title.toLowerCase().includes(filterValue))
-				.map(({ title, id, price, image, description }) => ({ title, id, price, image, description }))
-			setFilteredData(newFilteredData)
+		// let newFilterValue = [...filterValue]
+		if (filterValue.length === 0) {
+			setFilteredData(newClothesData)
+		} else {
+			setFilteredData(newClothesData.filter(item => filterValue.some(x => item.title.toLowerCase().includes(x))))
 		}
-		filterArray()
 	}, [clothesData, filterValue])
-	console.log(filteredData)
-	// sorting data
 	useEffect(() => {
 		let newClothesData = [...filteredData]
 		const sortArray = type => {
