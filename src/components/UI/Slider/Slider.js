@@ -29,7 +29,7 @@ const Slider = ({ clothesData }) => {
 								</div>
 								<div className='slider-item_text'>
 									<h4>{item.title}</h4>
-									<p>${item.price}</p>
+									<p>${item.price.toFixed(2)}</p>
 								</div>
 							</>
 						)}

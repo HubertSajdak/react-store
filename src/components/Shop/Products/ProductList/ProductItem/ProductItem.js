@@ -1,6 +1,19 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { cartActions } from '../../../../../store/cart-slice'
 import './ProductItem.css'
 const ProductItem = ({ clothesData }) => {
+	const dispatch = useDispatch()
+	const addItemToCartHandler = () => {
+		dispatch(
+			cartActions.addItemToCart({
+				id: clothesData.id,
+				title: clothesData.title,
+				price: clothesData.price,
+				image: clothesData.image,
+			})
+		)
+	}
 	return (
 		<div className='product'>
 			<div className='product-img'>
@@ -8,9 +21,13 @@ const ProductItem = ({ clothesData }) => {
 			</div>
 			<div className='product-text'>
 				<h4>{clothesData.title}</h4>
-				<p>${clothesData.price}</p>
 			</div>
-			<button className='product-button'>Add To Cart</button>
+			<div className='product-price'>
+				<p>${clothesData.price.toFixed(2)}</p>
+			</div>
+			<button onClick={addItemToCartHandler} className='product-button'>
+				Add To Cart
+			</button>
 		</div>
 	)
 }

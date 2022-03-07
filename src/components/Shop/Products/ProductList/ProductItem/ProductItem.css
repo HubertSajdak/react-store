@@ -28,14 +28,16 @@
 }
 .product-text {
 	text-align: center;
-
 	position: relative;
 	font-size: 1.4rem;
+	height: 5rem;
 }
-.product-text p {
+.product-price p {
+	justify-content: flex-end;
 	padding: 1rem;
 	font-size: 2rem;
 }
+
 .product-button {
 	padding: 1rem;
 	border: 1.5px solid #dfa241;

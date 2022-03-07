@@ -1,0 +1,8 @@
+.error-message {
+	display: flex;
+	flex-direction: column;
+	font-size: 20rem;
+}
+.error-message__icon {
+	font-size: 20rem;
+}

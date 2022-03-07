@@ -5,6 +5,15 @@
 .welcome__carousel-bg {
 	position: relative;
 }
+.welcome__text_brand-name {
+	display: inline-block;
+	padding: 0.5rem;
+	margin-bottom: 1.2rem;
+	color: var(--color-white);
+	background-color: var(--color-blue);
+	border: 2px solid var(--color-gold);
+	border-radius: 10px;
+}
 .welcome__hero-img:before,
 .welcome__carousel-bg:before {
 	content: '';
@@ -49,7 +58,7 @@
 }
 .welcome__button {
 	margin-top: 1rem;
-	color: var(--color-white);
+	color: var(--color-black);
 	background-color: var(--color-gold);
 	border: none;
 	border-radius: 5px;

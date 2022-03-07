@@ -6,6 +6,8 @@ import Navbar from './components/Navbar/Navbar'
 import Welcome from './components/Welcome/Welcome'
 import Spinner from './components/UI/Spinner/Spinner'
 import Shop from './components/Shop/Shop'
+import Cart from './components/Cart/Cart'
+import Footer from './components/Footer/Footer'
 import './App.css'
 
 function App() {
@@ -21,10 +23,16 @@ function App() {
 				<Switch>
 					<Route path='/welcome'>{loading ? <Spinner /> : <Welcome clothesData={clothes} errorMsg={error} />}</Route>
 					<Route path='/store'>
-						<Shop props={clothes} />
+						<Shop props={clothes} errorMsg={error} />
+					</Route>
+					<Route path='/cart'>
+						<Cart />
 					</Route>
 				</Switch>
 			</main>
+			<footer>
+				<Footer />
+			</footer>
 		</div>
 	)
 }

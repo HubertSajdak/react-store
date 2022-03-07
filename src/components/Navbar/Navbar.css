@@ -14,6 +14,11 @@
 	margin: 0.5rem;
 	font-weight: bold;
 	align-items: flex-start;
+	padding: 0.5rem;
+	color: var(--color-white);
+	background-color: var(--color-blue);
+	border: 2px solid var(--color-gold);
+	border-radius: 10px;
 }
 .navbar__brand-name span {
 	color: var(--color-gold);
@@ -32,11 +37,46 @@
 	font-size: 1.8rem;
 	transition: 0.2s;
 }
+.link-active {
+	color: var(--color-gold);
+	background-color: var(--color-grey);
+}
 
 .navbar__links li a:hover {
 	color: var(--color-gold);
 	background-color: var(--color-grey);
+}
+.navbar__user-options {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 15%;
+}
+
+.navbar__cart-container {
+	position: relative;
+	padding: 0.5rem;
 	border-radius: 15px;
+}
+.navbar__cart-container:hover {
+	background: var(--color-grey);
+}
+.navbar__cart-counter {
+	position: absolute;
+	right: 0;
+	width: 17px;
+	height: 17px;
+	transform: translateX(50%);
+	border: 1px solid goldenrod;
+	border-radius: 50%;
+	background-color: var(--color-gold);
+}
+.navbar__cart-counter p {
+	position: relative;
+	top: 1%;
+	left: 27%;
+	font-size: 1.2rem;
+	font-weight: bold;
 }
 
 .navbar__cart-icon,
@@ -53,7 +93,21 @@
 .navbar__avatar-icon:hover {
 	color: var(--color-gold);
 }
-
+.navbar__login-button {
+	color: var(--color-white);
+	background-color: var(--color-gold);
+	border: none;
+	border-radius: 5px;
+	padding: 1rem 2rem;
+	margin-right: 1rem;
+	transition: 0.3s ease;
+	cursor: pointer;
+}
+.navbar__login-button:hover {
+	color: var(--color-blue);
+	background-color: var(--color-white);
+	border: 1px solid var(--color-gold);
+}
 /* smallscreen  */
 .navbar__smallscreen {
 	display: none;
@@ -65,7 +119,6 @@
 
 .overlay-open,
 .overlay-close {
-	position: fixed;
 	right: 1rem;
 	top: 1rem;
 	font-size: 3rem;
@@ -86,6 +139,7 @@
 
 	.navbar__smallscreen {
 		display: block;
+		height: 100%;
 	}
 
 	.navbar__links ul {
