@@ -34,6 +34,7 @@ const Cart = () => {
 					<>
 						<div className='cart__items'>
 							<h1>Shopping Cart</h1>
+							<hr />
 							<CartList />
 						</div>
 						<div className='cart__summary'>

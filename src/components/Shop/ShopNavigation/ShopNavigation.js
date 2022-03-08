@@ -1,14 +1,14 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { sortingActions } from '../../../store/sorting-slice'
 import { filteringActions } from '../../../store/filtering-slice'
 import { useSelector } from 'react-redux'
 import './ShopNavigation.css'
 const ShopNavigation = props => {
-	// const filterValue = useSelector(state => state.filteringClothes.filterValue)
 	const [filterCategory, setFilterCategory] = useState([])
 	const typeRef = useRef('none')
 	const dispatch = useDispatch()
+
 	const sortHandler = () => {
 		if (typeRef.current.value === 'none') {
 			dispatch(sortingActions.sortNone())
@@ -26,15 +26,18 @@ const ShopNavigation = props => {
 			dispatch(sortingActions.sortZ_A())
 		}
 	}
+
 	const filterHandler = e => {
 		if (e.target.checked === true) {
 			setFilterCategory(filterCategory => [...filterCategory, e.target.value])
-			dispatch(filteringActions.newFilterValue(filterCategory))
 		} else {
 			setFilterCategory(filterCategory.filter(item => item !== e.target.value))
-			dispatch(filteringActions.newFilterValue(filterCategory))
 		}
 	}
+	useEffect(() => {
+		dispatch(filteringActions.newFilterValue(filterCategory))
+	}, [filterCategory])
+
 	return (
 		<div className='shop-navigation'>
 			<div className='shop-navigation__wrapper'>
@@ -50,16 +53,18 @@ const ShopNavigation = props => {
 				</div>
 				<div className='shop-navigation__category'>
 					<p>Categories</p>
-					<input type='checkbox' id='backpacks' value='backpack' onClick={filterHandler} />
-					<label htmlFor='backpacks'>Backpacks</label>
-					<input type='checkbox' id='jackets' value='jacket' onClick={filterHandler} />
-					<label htmlFor='jackets'>Jackets</label>
-					<input type='checkbox' id='t-shirts' value='shirt' onClick={filterHandler} />
-					<label htmlFor='t-shirts'>T-Shirts</label>
-					<input type='checkbox' id='sleeves' value='sleeve' onClick={filterHandler} />
-					<label htmlFor='sleeves'>Sleeves</label>
-					<input type='checkbox' id='casual' value='casual' onClick={filterHandler} />
-					<label htmlFor='casual'>Casual</label>
+					<div className='shop-navigation__category--box'>
+						<input type='checkbox' id='backpacks' value='backpack' onClick={filterHandler} />
+						<label htmlFor='backpacks'>Backpacks</label>
+						<input type='checkbox' id='jackets' value='jacket' onClick={filterHandler} />
+						<label htmlFor='jackets'>Jackets</label>
+						<input type='checkbox' id='t-shirts' value='shirt' onClick={filterHandler} />
+						<label htmlFor='t-shirts'>T-Shirts</label>
+						<input type='checkbox' id='sleeves' value='sleeve' onClick={filterHandler} />
+						<label htmlFor='sleeves'>Sleeves</label>
+						<input type='checkbox' id='casual' value='casual' onClick={filterHandler} />
+						<label htmlFor='casual'>Casual</label>
+					</div>
 				</div>
 			</div>
 		</div>
