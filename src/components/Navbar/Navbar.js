@@ -12,56 +12,20 @@ const Navbar = () => {
 	return (
 		<nav className='navbar'>
 			<div className='navbar__wrapper'>
-				<div className='navbar__brand-name'>
+				<Link to='/welcome' className='navbar__brand-name'>
 					<span>Clothing</span> Store
+				</Link>
+				<div className='navbar__menu'>
+					<AiOutlineBars className='navbar__menu--open-icon' />
 				</div>
-				<div className={isMenuOpen ? 'navbar__links ' : 'navbar__links hidden'}>
-					<ul>
-						{/* <li>
-							<CgProfile className='navbar__smallscreen-avatar-icon' />
-						</li>
-						<li>
-							<BsCart2 className='navbar__smallscreen-cart-icon' />
-						</li> */}
-						<li>
-							<NavLink activeClassName={'link-active'} to='/welcome'>
-								Home
-							</NavLink>
-						</li>
-						<li>
-							<NavLink activeClassName={'link-active'} to='/store'>
-								Store
-							</NavLink>
-						</li>
-						<li>
-							<NavLink activeClassName={'link-active'} to='/about'>
-								About
-							</NavLink>
-						</li>
-					</ul>
-				</div>
-				<div className='navbar__user-options'>
-					<Link to='/cart' className='navbar__cart-container'>
-						{counter > 0 ? (
-							<div className='navbar__cart-counter'>
-								<p>{counter}</p>
-							</div>
-						) : null}
-						<BsCart2 className='navbar__cart-icon' />
-					</Link>
-
-					<CgProfile className='navbar__avatar-icon' />
-
-					<button className='navbar__login-button'>Login</button>
-				</div>
-				{/* MOBILE NAVBAR  */}
-
-				<div className='navbar__smallscreen'>
-					{isMenuOpen ? (
-						<AiOutlineClose className='overlay-close' onClick={() => setIsMenuOpen(false)} />
-					) : (
-						<AiOutlineBars className='overlay-open' onClick={() => setIsMenuOpen(true)} />
-					)}
+				<div className='navbar__customer-panel'>
+					<div className='navbar__customer-panel_cart'>
+						<div className='navbar__customer-panel--cart-counter'>{counter}</div>
+						<BsCart2 className='navbar__customer-panel--cart-icon' />
+					</div>
+					<div className='navbar__customer-panel_profile'>
+						<CgProfile className='navbar__customer-panel--profile-icon' />
+					</div>
 				</div>
 			</div>
 		</nav>

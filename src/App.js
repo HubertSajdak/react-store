@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getClothes } from './store/fetchapi-slice'
 import { Route, Switch } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Navbar/Navbar'
 import Welcome from './components/Welcome/Welcome'
 import Spinner from './components/UI/Spinner/Spinner'
@@ -19,6 +21,7 @@ function App() {
 	return (
 		<div>
 			<Navbar />
+			<ToastContainer style={{ fontSize: '1.5rem' }} limit={3} autoClose={1500} />
 			<main>
 				<Switch>
 					<Route path='/welcome'>{loading ? <Spinner /> : <Welcome clothesData={clothes} errorMsg={error} />}</Route>
