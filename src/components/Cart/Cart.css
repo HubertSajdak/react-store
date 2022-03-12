@@ -4,7 +4,7 @@
 .cart__bg {
 	display: flex;
 	justify-content: space-around;
-	/* align-items: center; */
+	align-items: center;
 	width: 100%;
 	padding: 2rem;
 	gap: 5rem;
@@ -39,6 +39,7 @@
 
 .cart__container--text {
 	font-size: 2rem;
+	text-align: center;
 }
 .cart__container--button {
 	border-radius: 5px;

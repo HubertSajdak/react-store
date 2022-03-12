@@ -43,13 +43,13 @@
 	font-size: 4rem;
 	color: var(--color-white);
 	background-color: var(--color-black);
+	opacity: 80%;
 	border-radius: 50%;
 	z-index: 5;
 	cursor: pointer;
 }
 .left-arrow:hover,
 .right-arrow:hover {
-    
 }
 .left-arrow {
 	left: 0;

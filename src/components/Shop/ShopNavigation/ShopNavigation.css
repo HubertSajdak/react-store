@@ -3,7 +3,7 @@
 }
 .shop-navigation__wrapper {
 	position: sticky;
-	top: 0;
+	top: 6rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -79,19 +79,23 @@
 }
 @media (max-width: 576px) {
 	.shop-navigation {
+		position: fixed;
 		display: flex;
 		flex-direction: column;
-		position: sticky;
 		width: 100%;
-		top: 0;
+		bottom: 0;
+		border: 2px solid var(--color-blue);
+		border-top-left-radius: 15px;
+		border-top-right-radius: 15px;
 		z-index: 5;
+		transition: 0.3s ease;
 	}
 	.shop-navigation__wrapper {
-		position: static;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		margin-bottom: 10rem;
 	}
 	.shop-navigation__sort {
 		align-items: center;
@@ -100,18 +104,21 @@
 		flex-direction: column;
 	}
 	.shop-navigation__smallscreen-menu {
-		display: block;
+		position: fixed;
+		display: grid;
+		place-items: center;
+		bottom: 1rem;
+		right: 1rem;
+		width: 50px;
+		height: 50px;
+		font-size: 4rem;
+		border: 1px solid var(--color-gold);
+		border-radius: 10px;
 		color: var(--color-gold);
 		background-color: var(--color-blue);
-		border-top: 1px solid var(--color-blue);
-		border-bottom-right-radius: 80%;
-		border-bottom-left-radius: 80%;
-		width: 100%;
-		top: 0;
-		font-size: 3rem;
-		text-align: center;
+		z-index: 10;
 	}
 	.menu__hidden {
-		display: none;
+		transform: translateY(110%);
 	}
 }
