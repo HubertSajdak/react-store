@@ -4,11 +4,12 @@ import { sortingActions } from '../../../store/sorting-slice'
 import { filteringActions } from '../../../store/filtering-slice'
 import { viewActions } from '../../../store/view-slice'
 import { FaThList, FaBoxes } from 'react-icons/fa'
-import { BsFillArrowDownSquareFill, BsSortUp } from 'react-icons/bs'
+import { BsSortUp } from 'react-icons/bs'
+import { AiOutlineArrowDown } from 'react-icons/ai'
 import './ShopNavigation.css'
-const ShopNavigation = props => {
+const ShopNavigation = () => {
 	const viewType = useSelector(state => state.view.view)
-	const [isMenuOpen, setIsMenuOpen] = useState([])
+	const [isOptionsMenuOpen, setIsOptionsMenuOpen] = useState([])
 	const [filterCategory, setFilterCategory] = useState([])
 	const typeRef = useRef('none')
 	const dispatch = useDispatch()
@@ -42,8 +43,8 @@ const ShopNavigation = props => {
 		dispatch(filteringActions.newFilterValue(filterCategory))
 	}, [filterCategory])
 
-	const menuHandler = () => {
-		setIsMenuOpen(!isMenuOpen)
+	const optionsMenuHandler = () => {
+		setIsOptionsMenuOpen(!isOptionsMenuOpen)
 	}
 	const viewItemsHandler = () => {
 		dispatch(viewActions.toggleView())
@@ -51,7 +52,7 @@ const ShopNavigation = props => {
 
 	return (
 		<>
-			<div className={!isMenuOpen ? 'shop-navigation' : 'shop-navigation menu__hidden'}>
+			<div className={!isOptionsMenuOpen ? 'shop-navigation' : 'shop-navigation menu__hidden'}>
 				<div className='shop-navigation__wrapper'>
 					<div className='shop-navigation__sort'>
 						<label htmlFor='sort'>Sort</label>
@@ -102,7 +103,11 @@ const ShopNavigation = props => {
 				</div>
 			</div>
 			<div className='shop-navigation__smallscreen-menu '>
-				<BsSortUp className='shop-navigation__smallscreen-menu--show-icon' onClick={menuHandler} />
+				{!isOptionsMenuOpen ? (
+					<AiOutlineArrowDown className='shop-navigation__smallscreen-menu--show-icon' onClick={optionsMenuHandler} />
+				) : (
+					<BsSortUp className='shop-navigation__smallscreen-menu--show-icon' onClick={optionsMenuHandler} />
+				)}
 			</div>
 		</>
 	)

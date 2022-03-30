@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import ShopNavigation from './ShopNavigation/ShopNavigation'
 import ProductList from './Products/ProductList/ProductList'

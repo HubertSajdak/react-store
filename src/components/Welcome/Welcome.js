@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component'
 import hero from '../../assets/hero.jpg'
 import welcomeFilm from '../../assets/welcome-film1.mp4'
 import Slider from '../UI/Slider/Slider'
@@ -16,14 +15,7 @@ const Welcome = () => {
 	return (
 		<section className='welcome section__wrapper'>
 			<div className='welcome__hero-img'>
-				<LazyLoadImage
-					visibleByDefault={hero}
-					className='lazy-img'
-					src={hero}
-					effect='blur'
-					alt='woman looking at the camera'
-				/>
-				{/* <img src={hero} alt='woman looking at the camera' /> */}
+				<img src={hero} alt='woman looking at the camera' />
 				<div className='welcome__text'>
 					<h1 className='welcome__text_brand-name'>
 						<span>Clothing</span> Store
@@ -38,10 +30,7 @@ const Welcome = () => {
 			</div>
 
 			<div className='welcome__film'>
-				{/* <img src={carouselImg} alt='people hanging out' /> */}
-				<LazyLoadComponent>
-					<video src={welcomeFilm} type='video/mp4' autoPlay loop muted></video>
-				</LazyLoadComponent>
+				<video src={welcomeFilm} type='video/mp4' autoPlay loop muted></video>
 				<div className='welcome__film-text'>
 					<h3>
 						<span>Express</span> yourself with our newest collection
@@ -53,13 +42,12 @@ const Welcome = () => {
 				</div>
 			</div>
 			{isLoading && <Spinner />}
-			{!isError ? (
+			{!isLoading && !isError && (
 				<div className='welcome__slider'>
 					<Slider clothesData={clothes} />
 				</div>
-			) : (
-				<Error />
 			)}
+			{isError && !isLoading && <Error />}
 		</section>
 	)
 }

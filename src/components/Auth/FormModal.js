@@ -6,6 +6,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { AiOutlineClose } from 'react-icons/ai'
 import './FormModal.css'
+
 const FormModal = () => {
 	const dispatch = useDispatch()
 	const regErrorInfo = useSelector(state => state.regAuth.errorMessage)
@@ -33,6 +34,7 @@ const FormModal = () => {
 		}
 	}, [dispatch])
 
+	// form validation using formik and yup validation scheme.
 	const formik = useFormik({
 		initialValues: {
 			username: '',

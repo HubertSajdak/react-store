@@ -10,7 +10,6 @@ const ProductList = () => {
 	const viewType = useSelector(state => state.view.view)
 	const [filteredData, setFilteredData] = useState([])
 	const [sortedData, setSortedData] = useState([])
-
 	useEffect(() => {
 		let newClothesData = [...clothesData]
 		if (filterValue.length === 0) {
@@ -50,8 +49,8 @@ const ProductList = () => {
 
 	return (
 		<div className={viewType ? 'product-list product-list__list-view' : 'product-list'}>
-			<h1>Clothes & Accessories</h1>
-			<hr />
+			{/* <h1>Clothes & Accessories</h1> */}
+			{/* <hr /> */}
 			{sortedData.map(item => {
 				return <ProductItem key={item.id} clothesData={item} />
 			})}

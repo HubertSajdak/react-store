@@ -11,7 +11,6 @@ const Navbar = () => {
 	const counter = useSelector(state => state.cart.totalQuantity)
 	const isToken = localStorage.getItem('idToken')
 	const isLoggedIn = useSelector(state => state.logAuth.isLogged)
-	const isFormModalOpen = useSelector(state => state.userAuth.formModalOpen)
 	const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 	const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
 	const sideMenuRef = useRef()
