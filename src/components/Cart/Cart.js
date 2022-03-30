@@ -42,7 +42,7 @@ const Cart = () => {
 							<hr />
 							<div className='cart__summary-shipping'>
 								<p>Shipping:</p>
-								<span>Free</span>
+								{totalAmount >=100 ? <span>Free</span> : <span>$15</span>}
 							</div>
 							<div className='cart__summary-subtotal'>
 								<p>Subtotal:</p>

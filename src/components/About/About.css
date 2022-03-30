@@ -51,6 +51,7 @@
 }
 .about__company-info {
 	padding: 3rem;
+	font-weight: 300;
 }
 .about__company-info h2 {
 	margin: 5rem 0;

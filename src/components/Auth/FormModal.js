@@ -10,10 +10,11 @@ import './FormModal.css'
 const FormModal = () => {
 	const dispatch = useDispatch()
 	const regErrorInfo = useSelector(state => state.regAuth.errorMessage)
+	const isRegistered = useSelector(state => state.regAuth.isRegistered)
 	const logErrorInfo = useSelector(state => state.logAuth.errorMessage)
 	const [isRegisterForm, setIsRegisterForm] = useState(false)
 	const formRef = useRef()
-
+	console.log(isRegistered)
 	// open/close modal handler while pressing the profile icon
 
 	const modalFormHandler = () => {
@@ -62,6 +63,10 @@ const FormModal = () => {
 		onSubmit: values => {
 			if (isRegisterForm) {
 				dispatch(registerAuth(values))
+				
+				//closing the modal after successful registration
+
+				dispatch(userAuthActions.modalFormHandler())
 			} else {
 				dispatch(loginAuth(values))
 			}

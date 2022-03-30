@@ -33,7 +33,9 @@ const ProductDetail = () => {
 				<div className='product-detail__shipping-info'>
 					<div className='product-detail__shipping-info--deilvery'>
 						<FaTruck />
-						<p>2-5 days</p>
+						<p>
+							2-5 days <span>Free for orders over $100</span>
+						</p>
 					</div>
 					<div className='product-detail__shipping-info--return'>
 						<MdAssignmentReturn />
