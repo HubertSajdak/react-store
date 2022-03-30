@@ -20,9 +20,14 @@ Clothes data is provided by https://fakestoreapi.com
 - Registration/Logging,
 - Sorting and filtering store items,
 - Toggling view of items in the store page,
-- Adding items to cart (Cart data is being saved in the local storage),
-- Auto Logout function (after 1 min),
+- Adding items to the cart (Cart data is being saved in the local storage),
+- Auto Logout function (when the browser tab is hidden the unique id token provided by Firebase is being removed from the local storage after 1 minute),
 - Informing user about actions with toastify popup info.
+
+## Future Improvements
+
+- Add profile page,
+- Add checkout page,
 
 ### Live Version
 
