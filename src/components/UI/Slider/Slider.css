@@ -1,14 +1,18 @@
 .slider {
 	position: relative;
-	/* border: 3px solid var(--color-gold); */
 }
 
 .slider-items {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
 	opacity: 0;
 	transition: 1s ease;
+}
+.slider-items__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8%;
+	width: 100%;
+	cursor: pointer;
 }
 
 .slider-items.active {
@@ -33,6 +37,9 @@
 	max-width: 30rem;
 	max-height: 30rem;
 }
+.slider-item_text h4 {
+	margin-bottom: 1rem;
+}
 .left-arrow,
 .right-arrow {
 	position: absolute;
@@ -40,7 +47,7 @@
 	transform: translateY(-50%);
 	padding: 0.7rem;
 	margin: 1rem;
-	font-size: 4rem;
+	font-size: 5rem;
 	color: var(--color-black);
 	background-color: var(--color-gold);
 	box-shadow: 3px 3px 8px;
