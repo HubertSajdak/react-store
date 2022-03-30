@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-
+import { useDispatch } from 'react-redux'
 export const getClothes = createAsyncThunk('clothes/getClothes', async () => {
 	try {
 		const res = await fetch('https://fakestoreapi.com/products')
@@ -25,7 +25,8 @@ export const getClothes = createAsyncThunk('clothes/getClothes', async () => {
 		})
 		return clothesArr
 	} catch (error) {
-		console.log(error.message)
+		const dispatch = useDispatch()
+		dispatch(getClothes.rejected)
 	}
 })
 const clothesSlice = createSlice({
@@ -33,7 +34,7 @@ const clothesSlice = createSlice({
 	initialState: {
 		clothes: [],
 		loading: false,
-		error: null,
+		error: false,
 	},
 	extraReducers: {
 		[getClothes.pending]: (state, action) => {

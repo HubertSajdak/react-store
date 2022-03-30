@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { sortingActions } from '../../../store/sorting-slice'
 import { filteringActions } from '../../../store/filtering-slice'
+import { viewActions } from '../../../store/view-slice'
 import { FaThList, FaBoxes } from 'react-icons/fa'
 import { BsFillArrowDownSquareFill, BsSortUp } from 'react-icons/bs'
 import './ShopNavigation.css'
 const ShopNavigation = props => {
+	const viewType = useSelector(state => state.view.view)
 	const [isMenuOpen, setIsMenuOpen] = useState([])
 	const [filterCategory, setFilterCategory] = useState([])
 	const typeRef = useRef('none')
@@ -42,6 +44,9 @@ const ShopNavigation = props => {
 
 	const menuHandler = () => {
 		setIsMenuOpen(!isMenuOpen)
+	}
+	const viewItemsHandler = () => {
+		dispatch(viewActions.toggleView())
 	}
 
 	return (
@@ -86,8 +91,13 @@ const ShopNavigation = props => {
 					</div>
 					<hr />
 					<div className='shop-navigation__view'>
-						<FaThList className='shop-navigation__view--list' />
-						<FaBoxes className='shop-navigation__view--box' />
+						<div className='shop-navigation__view-container'>
+							{!viewType ? (
+								<FaThList className='shop-navigation__view--list' onClick={viewItemsHandler} />
+							) : (
+								<FaBoxes className='shop-navigation__view--box' onClick={viewItemsHandler} />
+							)}
+						</div>
 					</div>
 				</div>
 			</div>

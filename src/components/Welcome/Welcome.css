@@ -2,7 +2,7 @@
 	position: relative;
 }
 .welcome__hero-img,
-.welcome__carousel-bg {
+.welcome__film {
 	position: relative;
 }
 .welcome__text_brand-name {
@@ -15,7 +15,7 @@
 	border-radius: 10px;
 }
 .welcome__hero-img:before,
-.welcome__carousel-bg:before {
+.welcome__film:before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -23,11 +23,12 @@
 	height: 100%;
 	width: 100%;
 	background-color: var(--color-black);
-	opacity: 0.5;
+	opacity: 0.55;
 }
 
-.welcome__hero-img img,
-.welcome__carousel-bg img {
+.welcome__hero-img,
+.lazy-img,
+.welcome__film video {
 	width: 100%;
 	height: auto;
 	max-width: 1200px;
@@ -36,23 +37,23 @@
 }
 
 .welcome__text,
-.welcome__carousel-text {
+.welcome__film-text {
 	position: absolute;
-	top: 43%;
+	top: 30%;
 	margin: 2rem;
 }
 .welcome__text h1,
-.welcome__carousel-text h3 {
+.welcome__film-text h3 {
 	font-size: 4rem;
 }
 .welcome__text p,
-.welcome__carousel-text p {
+.welcome__film-text p {
 	font-size: 2rem;
 	color: var(--color-grey);
 	font-weight: 300;
 }
 .welcome__text h1 span,
-.welcome__carousel-text h3 span {
+.welcome__film-text h3 span {
 	color: var(--color-gold);
 	font-weight: 400;
 }
@@ -67,50 +68,52 @@
 	cursor: pointer;
 }
 .welcome__button:hover {
-	color: var(--color-blue);
+	color: var(--color-gold);
+
 	background-color: var(--color-white);
 }
-.welcome__carousel-bg {
+/* .welcome__film {
 	position: relative;
-}
-.welcome__carousel-text {
+} */
+.welcome__film-text {
 	max-width: 50rem;
 	color: var(--color-grey);
 }
 
 @media (max-width: 768px) {
+	.welcome__text {
+		top: 30%;
+	}
+	.welcome__film-text {
+		top: 25%;
+	}
 	.welcome__text h1,
-	.welcome__carousel-text h3 {
+	.welcome__film-text h3 {
 		font-size: 3.5rem;
 	}
 	.welcome__text p,
-	.welcome__carousel-text p {
+	.welcome__film-text p {
 		font-size: 1.5rem;
 	}
 }
 
 @media (max-width: 576px) {
-	.welcome__text {
-		position: absolute;
-		top: 30%;
+	.welcome__text,
+	.welcome__film-text {
+		text-align: center;
+		top: 10%;
 		margin: 2rem;
 	}
 	.welcome__text h1 {
-		font-size: 2.5rem;
+		font-size: 2rem;
 	}
 	.welcome__text p {
 		font-size: 1.2rem;
 	}
-
-	.welcome__carousel-text {
-		position: absolute;
-		top: 20%;
-		margin: 2rem;
-	}
-	.welcome__carousel-text h3 {
+	.welcome__film-text h3 {
 		font-size: 2rem;
 	}
-	.welcome__carousel-text p {
-		font-size: 1.5rem;
+	.welcome__film-text p {
+		font-size: 1.2rem;
 	}
 }

@@ -52,8 +52,7 @@
 	font-size: 1.5rem;
 	margin: 1rem 0.2rem;
 }
-.shop-navigation__category label {
-}
+
 .shop-navigation__category--box {
 	display: flex;
 	flex-direction: column;
@@ -66,9 +65,6 @@
 	font-size: 3rem;
 	padding: 0.2rem 1rem;
 }
-.shop-navigation__view--box {
-	margin-left: 2rem;
-}
 
 .shop-navigation__view--box,
 .shop-navigation__view--list {
@@ -77,7 +73,7 @@
 .shop-navigation__smallscreen-menu {
 	display: none;
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
 	.shop-navigation {
 		position: fixed;
 		display: flex;

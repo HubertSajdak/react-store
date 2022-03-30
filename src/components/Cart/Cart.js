@@ -70,7 +70,7 @@ const Cart = () => {
 									<BsCash />
 								</div>
 							</div>
-						</div>{' '}
+						</div>
 					</>
 				)}
 			</div>

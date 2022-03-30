@@ -5,14 +5,14 @@ import ProductList from './Products/ProductList/ProductList'
 import Spinner from '../UI/Spinner/Spinner'
 import Error from '../UI/Error/Error'
 import './Shop.css'
-const Shop = porps => {
-	const isLoading = useSelector(state => state.fetchClothes.loading)
-	const isError = useSelector(state => state.fetchClothes.error)
+const Shop = () => {
+	const { loading: isLoading, error: isError } = useSelector(state => state.fetchClothes)
 	return (
 		<section className='shop section__wrapper'>
 			<ShopNavigation />
-			{isLoading ? <Spinner /> : <ProductList />}
-			{isError && <Error />}
+			{isLoading && !isError && <Spinner />}
+			{!isLoading && !isError && <ProductList />}
+			{!isLoading && isError && <Error />}
 		</section>
 	)
 }

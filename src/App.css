@@ -9,3 +9,9 @@
 .product-list {
 	background-color: var(--color-white);
 }
+
+@media (max-width: 1200px) {
+	.section__wrapper {
+		border: none;
+	}
+}

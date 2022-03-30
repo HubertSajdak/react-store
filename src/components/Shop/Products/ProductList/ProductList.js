@@ -7,6 +7,7 @@ const ProductList = () => {
 	const clothesData = useSelector(state => state.fetchClothes.clothes)
 	const sortType = useSelector(state => state.sortingClothes.sortAs)
 	const filterValue = useSelector(state => state.filteringClothes.filterValue)
+	const viewType = useSelector(state => state.view.view)
 	const [filteredData, setFilteredData] = useState([])
 	const [sortedData, setSortedData] = useState([])
 
@@ -18,6 +19,7 @@ const ProductList = () => {
 			setFilteredData(newClothesData.filter(item => filterValue.some(val => item.title.toLowerCase().includes(val))))
 		}
 	}, [clothesData, filterValue])
+
 	useEffect(() => {
 		let newClothesData = [...filteredData]
 		const sortArray = type => {
@@ -47,7 +49,9 @@ const ProductList = () => {
 	}, [sortType, filteredData])
 
 	return (
-		<div className='product-list'>
+		<div className={viewType ? 'product-list product-list__list-view' : 'product-list'}>
+			<h1>Clothes & Accessories</h1>
+			<hr />
 			{sortedData.map(item => {
 				return <ProductItem key={item.id} clothesData={item} />
 			})}
